@@ -8,6 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
+width: 150px;
   font-size: 24px;
   padding: 10px;
   border-radius: 12px;
