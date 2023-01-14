@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container, Title } from './Section.styled'
 
 const Section = ({ title, children}) => (
-    <div>
-        <h1>{title}</h1>
+    <Container>
+        <Title>{title}</Title>
         {children}
-    </div>
+    </Container>
 
 );
 
