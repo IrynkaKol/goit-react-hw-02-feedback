@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Statistics from './Feedback/Statistics';
-import FeedbackOptions from './Feedback/Statistics';
+import Statistics from './Statistics';
+import FeedbackOptions from './FeedbackOptions';
 
 export class App extends Component {
   state = {
@@ -8,6 +8,7 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
+
   handleGood = () => {
     this.setState(prevState => ({
       good: prevState.good + 1,
@@ -60,8 +61,10 @@ export class App extends Component {
       >
         <div>
           <h1>Please leave feedback</h1>
-          <FeedbackOptions />
-         
+          <FeedbackOptions
+          options={['Good', 'Neutral', 'Bad']}
+          onLeaveFeedback={[this.handleGood, this.handleNeutral, this.handleBad]}
+          />
 
           <h2>Statistics</h2>
           <Statistics
