@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
+import Section from './Section';
 
 export class App extends Component {
   state = {
@@ -74,14 +75,15 @@ if (e === 'Good') {
           color: '#010101',
         }}
       >
-        <div>
-          <h1>Please leave feedback</h1>
+        <Section title='Please leave feedback'>
+          
           <FeedbackOptions
           options={['Good', 'Neutral', 'Bad']}
           onLeaveFeedback={this.handleFeedback}
           />{' '}
+          </Section>
 
-          <h2>Statistics</h2>
+          <Section title='Statistics'>
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
@@ -89,8 +91,9 @@ if (e === 'Good') {
             total={this.countTotalFeedback()}
             positivePercentage={this.countPositiveFeedbackPercentage()}
           />
+          </Section>
         </div>
-      </div>
+      
     );
   }
 }
