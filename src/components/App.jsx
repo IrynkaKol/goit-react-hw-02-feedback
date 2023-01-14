@@ -9,7 +9,22 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleGood = () => {
+  handleFeedback = (e) => {
+if (e === 'Good') {
+  this.setState(prevState => ({
+    good: prevState.good + 1,
+  }));
+} else if (e === 'Neutral') {
+  this.setState(prevState => ({
+    neutral: prevState.neutral + 1,
+  }));
+} else if (e === 'Bad') {
+  this.setState(prevState => ({
+    bad: prevState.bad + 1,
+  }));
+}
+  }
+  /*handleGood = () => {
     this.setState(prevState => ({
       good: prevState.good + 1,
     }));
@@ -25,7 +40,7 @@ export class App extends Component {
     this.setState(prevState => ({
       bad: prevState.bad + 1,
     }));
-  };
+  };*/
 
   countTotalFeedback = () => {
     let total = this.state.good + this.state.neutral + this.state.bad;
@@ -63,8 +78,8 @@ export class App extends Component {
           <h1>Please leave feedback</h1>
           <FeedbackOptions
           options={['Good', 'Neutral', 'Bad']}
-          onLeaveFeedback={[this.handleGood, this.handleNeutral, this.handleBad]}
-          />
+          onLeaveFeedback={this.handleFeedback}
+          />{' '}
 
           <h2>Statistics</h2>
           <Statistics
